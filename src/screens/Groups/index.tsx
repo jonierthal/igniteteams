@@ -11,7 +11,7 @@ import { FlatList } from 'react-native';
 
 
 export function Groups() {
-const [groups, setGroups] = useState<string[]>(['Teste'])
+const [groups, setGroups] = useState<string[]>([])
 
   return (
     <Container>
