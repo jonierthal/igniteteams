@@ -3,6 +3,7 @@ import { Filter } from '@components/Filter';
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
 import { Input } from '@components/Input';
+import { PlayerCard } from '@components/PlayerCard';
 
 import { Container, Form, HeaderList, NumberOfPlayers } from './styles';
 
@@ -11,7 +12,7 @@ import { useState } from 'react';
  
 export function Players(){
     const [team, setTeam] = useState('TIME A');
-    const [players, setPlayers] = useState(['1','2','3']);
+    const [players, setPlayers] = useState(['Jonathan','Marcos']);
 
     return (
         <Container>
@@ -47,7 +48,14 @@ export function Players(){
                     {players.length}
                 </NumberOfPlayers>
             </HeaderList>
-
+            
+            <FlatList
+                data={players}
+                keyExtractor={item=>item}
+                renderItem={({item }) => (
+                    <PlayerCard name={item} />
+                )}
+            />
         </Container>
     );
 }
